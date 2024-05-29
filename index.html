@@ -18,30 +18,30 @@
             background-color: #E2E2E2;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Align items to the left */
+            align-items: flex-start;
             justify-content: center;
             color: black;
-            padding-left: 50px; /* Add some padding for left alignment */
-            position: relative; /* Ensure floating circles are positioned relative to this container */
-            font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+            padding-left: 50px;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
         }
         h1 {
             font-size: 500%;
             margin-bottom: 1px;
-            text-align: left; /* Left align text */
-            font-weight: 500; /* Specify semibold */
+            text-align: left;
+            font-weight: 500;
         }
         p {
             font-size: 300%;
             color: #6e5858;
             margin: 0;
-            margin-bottom: 20px; /* Adjust margin bottom */
-            text-align: left; /* Left align text */
-            font-family: 'Big Shoulders Display', cursive; /* Apply Big Shoulders Display font */
+            margin-bottom: 20px;
+            text-align: left;
+            font-family: 'Big Shoulders Display', cursive;
         }
         .buttons {
-            display: flex; /* Make sure buttons are inline */
-            gap: 10px; /* Space between buttons */
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
@@ -50,7 +50,12 @@
         <div class="circle">
             <img src="images/headshot.jpg" alt="Praneetha's Headshot">
         </div>
-        <button class="about-me" onclick="window.location.href='about.html'">About Me</button>
+        <button class="about-me" onclick="window.location.href='swe.html'">About Me</button>
+        <script>
+            function goToPhilosopherPage() {
+                window.location.href = 'philosopher.html';
+            }
+        </script>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/praneetha-bhogi-1a6193228/" target="_blank">
                 <img src="images/linkedin_icon.webp" alt="LinkedIn" class="social-icon">

@@ -6,7 +6,6 @@ body {
 
 .left-side {
     width: 30%;
-    /* background-color: #4ABDAC; */
     background-color: #4E0C0C;
     display: flex;
     flex-direction: column;
@@ -41,9 +40,12 @@ button {
     width: auto;
 }
 
-/* Specific button styling */
 .about-me {
     background-color: #FFFFFF;
+}
+
+.about-me:hover {
+    background-color: #c3c3c3;
 }
 
 .projects, .resume {
