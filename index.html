@@ -6,6 +6,7 @@
     <title>Hi, I'm Praneetha Bhogi</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Big+Shoulders+Display&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -14,25 +15,33 @@
         }
         .right-side {
             width: 70%;
-            background-color: #F5F4F4;
+            background-color: #E2E2E2;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Align items to the left */
             justify-content: center;
-            font-family: 'Bebas Neue', sans-serif;
             color: black;
+            padding-left: 50px; /* Add some padding for left alignment */
+            position: relative; /* Ensure floating circles are positioned relative to this container */
+            font-family: 'Roboto', sans-serif; /* Apply Roboto font */
         }
         h1 {
-            font-size: 600%;
-            text-align: center;
+            font-size: 500%;
             margin-bottom: 1px;
+            text-align: left; /* Left align text */
+            font-weight: 500; /* Specify semibold */
         }
         p {
             font-size: 300%;
-            text-align: center;
-            color: #747474;
+            color: #6e5858;
             margin: 0;
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Adjust margin bottom */
+            text-align: left; /* Left align text */
+            font-family: 'Big Shoulders Display', cursive; /* Apply Big Shoulders Display font */
+        }
+        .buttons {
+            display: flex; /* Make sure buttons are inline */
+            gap: 10px; /* Space between buttons */
         }
     </style>
 </head>
@@ -41,7 +50,7 @@
         <div class="circle">
             <img src="images/headshot.jpg" alt="Praneetha's Headshot">
         </div>
-        <button onclick="window.location.href='about.html'">About Me</button>
+        <button class="about-me" onclick="window.location.href='about.html'">About Me</button>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/praneetha-bhogi-1a6193228/" target="_blank">
                 <img src="images/linkedin_icon.webp" alt="LinkedIn" class="social-icon">
@@ -57,13 +66,10 @@
     <div class="right-side">
         <h1>Hi, I'm Praneetha Bhogi</h1>
         <p>Computer Science and Philosophy</p>
-        <button onclick="window.location.href='projects.html'">Projects</button>
-        <button onclick="window.location.href='documents/resume.pdf'">Resume</button>
-        <div class="floating-circles">
-            <div class="circle large"></div>
-            <div class="circle small"></div>
+        <div class="buttons">
+            <button class="projects" onclick="window.location.href='projects.html'">Projects</button>
+            <button class="resume" onclick="window.location.href='documents/resume.pdf'">Resume</button>
         </div>
     </div>
 </body>
 </html>
-
