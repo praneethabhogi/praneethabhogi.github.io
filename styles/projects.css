@@ -38,15 +38,6 @@ h1 {
     background-color: #4E0C0C;
     color: #FFFFFF;
 }
-/* .highlight-box {
-    background-color: rgba(78, 12, 12, 0.302);
-    padding: 10px;
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 65px;
-    width: 370px;
-    height: 30px;
-} */
 .highlight-box {
     position: absolute;
     margin-left: 10px;
@@ -137,4 +128,92 @@ h1 {
 }
 .learn-more-button:hover {
     background-color: #7f0e0e;
+}
+.title-allergeat {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    position: absolute;
+    top: 850px;
+    left: 60px;
+}
+.title-carbcons {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    position: absolute;
+    top: 2150px;
+    left: 60px;
+}
+.title-site {
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    position: absolute;
+    top: 2950px;
+    left: 60px;
+}
+.highlight-box-title {
+    position: absolute;
+    height: 30px;
+    overflow: hidden;
+    background: linear-gradient(to right, rgba(78, 12, 12, 0.302), #ffff0000 70%);
+    transform: skewX(-20deg);
+}
+#highlight-allergeat {
+    width: 350px;
+    top: 880px;
+    left: 72px;
+}
+#highlight-carbcons {
+    width: 650px;
+    top: 2180px;
+    left: 72px;
+}
+#highlight-site {
+    width: 420px;
+    top: 2980px;
+    left: 72px;
+}
+.tech-details {
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Roboto Serif', sans-serif;
+    margin-top: 10px;
+}
+.concept-details {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Roboto Serif', serif;
+    font-weight: bolder;
+}
+.concept-details h2, .concept-details h3 {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.concept-details h4 {
+    font-size: 17px;
+    font-weight: bolder;
+}
+.concept-details ul {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.concept-details ul li {
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+.concept-details ul li strong {
+    font-size: 15px;
+    font-weight: bold;
+}
+.red-highlight {
+    background-color: #58313125;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
 }

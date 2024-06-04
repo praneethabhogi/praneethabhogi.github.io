@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link rel="stylesheet" href="styles/projects.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@600&family=Roboto+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="top-buttons">
@@ -13,30 +13,84 @@
         <button class="top-button projects" onclick="window.location.href='projects.html'">Projects</button>
         <button class="top-button about" onclick="window.location.href='swe.html'">About</button>
     </div>
+    <h1>Explore My Work</h1>
     <div class="highlight-box"></div>
     <div class="images-container">
         <div class="allergeat-container">
-            <img src="images/allergeat.PNG" alt="Allerg-Eat Mockup" class="project-allergeat">
+            <img src="images/allergeat.PNG" alt="Allerg-Eat Mockup" class="project-allergeat" onclick="scrollToTitle('title-allergeat')">
             <div class="image-overlay">
                 <div class="description">Allerg-Eat: An app to manage food allergies</div>
-                <button class="learn-more-button" onclick="window.location.href='learn-more.html'">Learn More</button>
+                <button class="learn-more-button" onclick="scrollToTitle('title-allergeat')">Learn More</button>
             </div>
         </div>
         <div class="carbcons-container">
-            <img src="images/carb_cons.PNG" alt="Carbon Conscious Mockup" class="project-carbcons">
+            <img src="images/carb_cons.PNG" alt="Carbon Conscious Mockup" class="project-carbcons" onclick="scrollToTitle('title-carbcons')">
             <div class="image-overlay">
                 <div class="description">Carbon Conscious: An app to track your carbon footprint</div>
-                <button class="learn-more-button" onclick="window.location.href='learn-more.html'">Learn More</button>
+                <button class="learn-more-button" onclick="scrollToTitle('title-carbcons')">Learn More</button>
             </div>
         </div>
         <div class="site-container">
-            <img src="images/site.PNG" alt="Site Mockup" class="project-site">
+            <img src="images/site.PNG" alt="Site Mockup" class="project-site" onclick="scrollToTitle('title-site')">
             <div class="image-overlay">
                 <div class="description">My Portfolio: A showcase of my skills</div>
-                <button class="learn-more-button" onclick="window.location.href='learn-more.html'">Learn More</button>
+                <button class="learn-more-button" onclick="scrollToTitle('title-site')">Learn More</button>
             </div>
         </div>
     </div>
-    <h1>Explore My Work</h1>
+    <div class="title-allergeat" id="title-allergeat">
+        Allerg-Eat
+        <p class="tech-details">
+            <em>ML Model: Python, Pandas, scikit-learn, NumPy, NLTK, Gensim, Pytorch<br>
+            App Development: Flask, Node.js, React.js, Figma</em>
+        </p>
+        <div class="concept-details">
+            <h2>The Concept</h2>
+            <p>As someone who had many restrictions and health issues that made it hard to find recipes that met my dietary needs, I envisioned Allerg-Eat as a tool to alleviate the problem. Allerg-Eat is a recipe recommendation system tailored specifically for individuals with food allergies and dietary restrictions.</p>
+            <p>My model takes in a user’s allergy information and cravings, which are then used to create a personalized ranked list of recipes. Using fundamental techniques in ML and NLP, Allerg-Eat filters through thousands of recipes to ensure that you can find meals that are both safe and delicious.</p>
+            <h3>Data Formatting</h3>
+            <ul>
+                <li><strong class="red-highlight">Loading Data:</strong> I loaded the raw recipe data from a JSON file using pd.read_json. The data is then transposed to switch rows and columns for proper alignment.</li>
+                <li><strong class="red-highlight">Resetting Index:</strong> I reset the index to have a proper integer-based index and drop the first column which might contain irrelevant data.</li>
+                <li><strong class="red-highlight">Cleaning Ingredients List:</strong> The ingredient_parser function processes each ingredient list to remove stop words, measurement words, accents, and converts them to their base forms for consistency.</li>
+                <li><strong class="red-highlight">Ingredient Parsing:</strong> The function processes each ingredient string by splitting, filtering, and normalizing text, and removes unnecessary words to prepare a clean list of ingredients.</li>
+            </ul>
+            <h3>Ingredient Grouping</h3>
+            <p>In this step, the ingredients are grouped and processed to understand their semantic relationships.</p>
+            <ul>
+                <li><strong class="red-highlight">Grouping Ingredients:</strong> Here, I joined the cleaned ingredient lists into single strings for each recipe. This helps in further processing steps where each recipe is treated as a document for natural language processing.</li>
+            </ul>
+            <p>I used the Word2Vec model to generate vector representations of the ingredients.</p>
+            <ul>
+                <li><strong class="red-highlight">Training Word2Vec:</strong> The Word2Vec model is trained on the cleaned ingredient lists. I used the Continuous Bag of Words (CBOW) approach to understand the context of each ingredient and create vector representations.</li>
+                <li><strong class="red-highlight">Average Vector Calculation:</strong> This function calculates the average vector representation for each recipe by averaging the vectors of its ingredients.</li>
+            </ul>
+            <h3>Similarity Ranking</h3>
+            <p>I used cosine similarity to rank the recipes based on user preferences.</p>
+            <ul>
+                <li><strong class="red-highlight">Cosine Similarity Calculation:</strong> This function calculates the cosine similarity between two vectors to determine how similar they are.</li>
+                <li><strong class="red-highlight">Ranking Function:</strong> This function ranks the recipes based on the user's allergies and cravings. It adjusts the reference vector according to the user's cravings and calculates the cosine similarity for each recipe. The similarity score is then adjusted based on the presence of allergens.</li>
+            </ul>
+            <h3>Next Steps</h3>
+            <ul>
+                <li><strong class="red-highlight">User Feedback Integration:</strong> Incorporate user feedback to refine the recommendation algorithm and improve the accuracy of the ranked recipes.</li>
+                <li><strong class="red-highlight">Personalized Meal Plans:</strong> Introduce personalized meal plans that consider not just allergies and cravings but also nutritional requirements and dietary goals.</li>
+                <li><strong class="red-highlight">Mobile App Development:</strong> Develop a mobile application to make Allerg-Eat accessible on-the-go, providing real-time recipe recommendations based on user location and preferences.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="title-carbcons" id="title-carbcons">Carbon Conscious</div>
+    <div class="title-site" id="title-site">My Portfolio</div>
+
+    <div class="highlight-box-title" id="highlight-allergeat"></div>
+    <div class="highlight-box-title" id="highlight-carbcons"></div>
+    <div class="highlight-box-title" id="highlight-site"></div>
+
+    <script>
+        function scrollToTitle(titleId) {
+            var titleElement = document.getElementById(titleId);
+            titleElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
