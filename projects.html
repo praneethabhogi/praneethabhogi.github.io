@@ -79,8 +79,163 @@
             </ul>
         </div>
     </div>
-    <div class="title-carbcons" id="title-carbcons">Carbon Conscious</div>
-    <div class="title-site" id="title-site">My Portfolio</div>
+    <div class="title-carbcons" id="title-carbcons">
+        Carbon Conscious
+        <p class="tech-details">
+            <em>Database: SQL, MySQL, GCP, BigQuery<br>
+            App Development: HTML/CSS, JavaScript, Express.js VSCode, Git, Figma</em>
+        </p>
+        <div class="concept-details">
+            <h2>The Concept</h2>
+            <p>Over the course of 6 months, my team worked on developing our web application CarbonConscious, aiming to analyze sustainability practices in corporate settings and provide valuable feedback to our users. Our app allows users to input the emissions data for 
+                either their specific building or their company as a whole and then are given a comprehensive examination of their environmental contribution. Through the use of graph visuals and interactive elements, CarbonConscious empowers businesses to make informed 
+                decisions toward a greener future.</p>
+            <h3>Database Organization</h3>
+            <ul>
+                <li>We started by creating a Unified Modeling Language (UML) diagram to map out the relationships between various entities in our data. This was the blueprint for our database schema, allowing us to visualize how the data interacts within our system.</li>
+                <li>Relational schema representation:</li>
+            </ul>
+            <h3>Hosting the Database</h3>
+            <ul>
+                <li>To host our database, we leveraged the capabilities of Google Cloud Platform (GCP). This provided us with a reliable, scalable, and secure environment for our application. Specifically, we created our own Virtual Machine (VM) on GCP, which allowed us to have full control over the configuration and management of our database. </li>
+                <li>We chose MySQL as our database management system due to its robustness and widespread adoption. MySQL's features, such as ACID compliance and support for complex queries, made it an ideal choice for handling our emissions data. By hosting MySQL on a GCP VM, we could easily scale our resources based on demand, ensuring that our application remained performant even as the volume of data grew.</li>
+                <li>To set up the tables in MySQL, we used Data Definition Language (DDL) code:</li>
+            </ul>
+            <h3>Planning: Possible Queries and Indexing</h3>
+            <p>We wrote four possible advanced queries that could be useful for the purpose of our application:</p>
+            <ol>
+            <li><strong>Compare company emission contribution in the same location</strong>
+                <ul>
+                <li>Calculates total emissions for each company within a specific location and determines each company's percentage contribution to the total emissions of that location.</li>
+                <li>Helps identify the most significant contributors to emissions within a shared area.</li>
+                </ul>
+            </li>
+            <li><strong>Total Emissions</strong>
+                <ul>
+                <li>Calculates total energy consumption and total emissions for each company by combining data from both company-wide and building-specific records.</li>
+                <li>Provides a comprehensive view of each company's overall environmental impact.</li>
+                </ul>
+            </li>
+            <li><strong>Energy Ranking</strong>
+                <ul>
+                <li>Calculates an energy rating for each company by taking into account both negative factors (such as energy consumption and emissions) and positive factors (such as renewable energy usage).</li>
+                <li>Ranks companies based on their overall environmental performance.</li>
+                </ul>
+            </li>
+            <li><strong>Compare post-feedback</strong>
+                <ul>
+                <li>Compares the total energy consumption and emissions of companies before and after implementing feedback from CarbonConscious.</li>
+                <li>Identifies if there has been any reduction in consumption or emissions post-feedback.</li>
+                </ul>
+            </li>
+            </ol>
+            <p>In order to enhance the performance of our queries, particularly the post-feedback query, we implemented indexing strategies. This optimization process involved several iterations, where we analyzed the cost impacts of different indexing approaches using the EXPLAIN ANALYZE command.</p>
+            <p>A look into MySQL indexing:</p>
+            <p>To enhance the functionality and maintainability of our database, we incorporated code for triggers and stored procedures → Automate routine tasks and encapsulate complex queries, leading to better performance and easier management.</p>
+            <h3>Implementation</h3>
+            <p>Backend</p>
+            <ul>
+                <li><strong>Language:</strong> JavaScript</li>
+                <li><strong>Framework:</strong> Express.js</li>
+                <li><strong>Handle server-side operations: managing user authentication, processing user requests, and interacting with the database</strong></li>
+            </ul>
+            <p>Frontend</p>
+            <ul>
+                <li><strong>Language:</strong> HTML/CSS</li>
+                <li><strong>Tools: Figma (design), VSCode (development)</strong></li>
+                <li>Create structure of the application, with stylistic elements to enhance user interaction and experience</li>
+            </ul>
+            <p>SQL Integration</p>
+            <ul>
+                <li>Integrated the total emissions and energy ranking SQL queries into the backend code to interact with our database</li>
+            </ul>
+            <h3>Functionalities</h3>
+            <p>By combining a robust backend with an intuitive frontend, CarbonConscious offers a comprehensive solution for businesses to monitor and enhance their sustainability practices.</p>
+            <ul>
+            <li><strong>Log In Page</strong>
+                <ul>
+                    <li>Users can log in with their credentials to access the application.</li>
+                    <li>Secure authentication mechanisms are implemented to protect user data.</li>
+                </ul>
+            </li>
+            <li><strong>Change username/password</strong>
+                <ul>
+                    <li>Users have the option to update their username or password.</li>
+                    <li>This feature ensures that users can maintain the security of their accounts.</li>
+                </ul>
+            </li>
+            <li><strong>Delete account</strong>
+                <ul>
+                    <li>Users can delete their accounts if they no longer wish to use the service.</li>
+                    <li>This action removes all associated data from the database, ensuring privacy and compliance with data protection regulations.</li>
+                </ul>
+            </li>
+            <li><strong>Data Entry for Emissions</strong>
+                <ul>
+                    <li>Users can input emissions data for either their specific building or their entire company.</li>
+                    <li>This data is stored in the database and used for analysis.</li>
+                </ul>
+            </li>
+            <li><strong>Results Page</strong>
+                <ul>
+                    <li>Displays the total emissions for the user’s building or company.</li>
+                    <li>Shows the user’s performance through graph visuals.</li>
+                    <li>Provides suggestions for reducing emissions based on the data entered.</li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+    </div>
+    <div class="title-site" id="title-site">My Portfolio
+        <p class="tech-details">
+            <em>App Development: HTML/CSS, JavaScript, VSCode, Git, Figma</em>
+        </p>
+        <div class="concept-details">
+            <h2>Planning</h2>
+            <ul>
+                <li><strong class="red-highlight">Figma:</strong> Utilized for designing wireframes and creating visual representations of the website's layout and structure.</li>
+                <li><strong class="red-highlight">Google Docs:</strong> Used for planning the creative elements of the text, such as font, size, style, and layout.</li>
+            </ul>
+            <h2>Implementation Elements</h2>
+            <ul>
+                <li><strong class="red-highlight">HTML:</strong> Provided the structure of the web pages, including elements such as webpage layout, interactive images, etc.</li>
+                <li><strong class="red-highlight">CSS:</strong> Applied styles to HTML elements, including colors, fonts, and responsive design.</li>
+                <li><strong class="red-highlight">JavaScript:</strong> Implemented custom functionalities and transitions to add interactivity and dynamic behavior to the website.</li>
+            </ul>
+            <h2>Home Page</h2>
+            <ul>
+                <li><strong class="red-highlight">HTML/CSS:</strong> Uses basic design elements to transform the mockup into an interactive webpage, with cursor functionalities, image-to-button conversions, and a clear color scheme.</li>
+                <li><strong class="red-highlight">To-do:</strong> make the home page more professional and eye-catching by adding interactive hover functionalities using JS.</li>
+            </ul>
+            <p>Figma mockup: </p>
+            <p>Actual: </p>
+            <h2>About Page</h2>
+            <ul>
+                <li>To ensure a smooth transition from page #1 to page #2 (and page #2 to page #3), I integrated JavaScript seamlessly into the HTML files. This implementation enables sliding-out and fading-out transitions, enhancing the user experience with fluid navigation. These transitions not only provide a visually appealing pathway to the next page but also ensure that the shift between pages with contrasting colors remains gentle and easy on the eyes.</li>
+            </ul>
+            <p>Figma mockup: </p>
+            <p>Actual: </p>
+            <h2>Project Page</h2>
+            <ul>
+                <li>This page showcases different projects, each with its own description and implementation details. Each project is presented with an image and a brief overview, and clicking on it scrolls to the corresponding details. The page incorporates smooth scrolling functionality using JavaScript to enhance the user experience. Additionally, the design employs CSS for styling and layout, ensuring a visually appealing presentation.</li>
+            </ul>
+            <p>Figma mockup (starting): </p>
+            <p>Actual (starting): </p>
+            <p>Figma mockup: </p>
+            <p>Actual: </p>
+            <h2>Other Features</h2>
+            <ul>
+                <li>I integrated a navigation bar with links to the home page (“Home”), projects page (“Projects”), and the About Me page (“About”) to allow users to easily navigate between different sections of the website, enhancing user accessibility and usability.</li>
+                <li>I also attached my resume, providing users with direct access to detailed and more concise information about my qualifications, experience, and skills, enhancing their understanding of my professional background and expertise.</li>
+            </ul>
+            <h2>Takeaways</h2>
+            <ul>
+                <li>Trial and error to figure out what is visually appealing and how to translate rough sketches into functional web pages</li>
+                <li>Clear planning and creative stimulation are necessary for web page development</li>
+                <li>Growing familiarity with HTML/CSS and JavaScript and the many uses in UI/UX spaces</li>
+            </ul>
+        </div>
+    </div>
 
     <div class="highlight-box-title" id="highlight-allergeat"></div>
     <div class="highlight-box-title" id="highlight-carbcons"></div>
