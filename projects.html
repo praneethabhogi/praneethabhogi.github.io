@@ -71,6 +71,9 @@
                 <li><strong class="red-highlight">Cosine Similarity Calculation:</strong> This function calculates the cosine similarity between two vectors to determine how similar they are.</li>
                 <li><strong class="red-highlight">Ranking Function:</strong> This function ranks the recipes based on the user's allergies and cravings. It adjusts the reference vector according to the user's cravings and calculates the cosine similarity for each recipe. The similarity score is then adjusted based on the presence of allergens.</li>
             </ul>
+            <h3>In Progress</h3>
+            <p>I am currently building the CBOW (Continuous Bag of Words) approach to the Word2Vec model from scratch using a neural network. The data preparation involves cleaning ingredient lists, creating a corpus of sentences, and generating CBOW pairs. The CBOWModel class defines a neural network with an embedding layer and a linear layer. 
+                The vocabulary is created from unique words in the ingredient list, and sequences of words are converted into indices. The model is initialized with the vocabulary size and embedding size, and trained using CrossEntropyLoss and SGD optimizer. After training, the word embeddings are extracted and stored in a dictionary for further use.</p>
             <h3>Next Steps</h3>
             <ul>
                 <li><strong class="red-highlight">User Feedback Integration:</strong> Incorporate user feedback to refine the recommendation algorithm and improve the accuracy of the ranked recipes.</li>
@@ -93,13 +96,114 @@
             <h3>Database Organization</h3>
             <ul>
                 <li>We started by creating a Unified Modeling Language (UML) diagram to map out the relationships between various entities in our data. This was the blueprint for our database schema, allowing us to visualize how the data interacts within our system.</li>
+                <img src="images/UML diagram.png" alt="UML Diagram" style="display: block; margin: 10px 0; width: 400px; height: auto;">
                 <li>Relational schema representation:</li>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Company</u><br>
+                        CompanyId: INT [PK]<br>
+                        CompanyName: VARCHAR(30)<br>
+                        LocationId: INT<br>
+                        ElectricityConsumption: DECIMAL<br>
+                        GasConsumption: DECIMAL<br>
+                        RenewableConsumption: DECIMAL<br>
+                        CO2Emissions: DECIMAL<br>
+                        NitrogenEmissions: DECIMAL
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Building</u><br>
+                        BuildingId: INT [PK]<br>
+                        CompanyId: INT [FK to Company.CompanyId]<br>
+                        LocationId: INT [FK to Location.LocationId]<br>
+                        ElectricityConsumption: DECIMAL<br>
+                        GasConsumption: DECIMAL<br>
+                        RenewableConsumption: DECIMAL<br>
+                        CO2Emissions: DECIMAL<br>
+                        NitrogenEmissions: DECIMAL
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>User</u><br>
+                        username: VARCHAR(30) [PK]<br>
+                        password: VARCHAR(30)<br>
+                        CompanyId: INT [FK to Company.CompanyId]
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Location</u><br>
+                        LocationId: INT [PK]<br>
+                        Temperature: INT
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Product</u><br>
+                        ProductId: INT [PK]<br>
+                        ProductName: VARCHAR(30)<br>
+                        Department: VARCHAR(20)<br>
+                        CompanyId: INT [FK to Company.CompanyId]<br>
+                        Quantity: INT
+                    </div>
+                </div>
             </ul>
             <h3>Hosting the Database</h3>
             <ul>
                 <li>To host our database, we leveraged the capabilities of Google Cloud Platform (GCP). This provided us with a reliable, scalable, and secure environment for our application. Specifically, we created our own Virtual Machine (VM) on GCP, which allowed us to have full control over the configuration and management of our database. </li>
                 <li>We chose MySQL as our database management system due to its robustness and widespread adoption. MySQL's features, such as ACID compliance and support for complex queries, made it an ideal choice for handling our emissions data. By hosting MySQL on a GCP VM, we could easily scale our resources based on demand, ensuring that our application remained performant even as the volume of data grew.</li>
+                <img src="images/mySQL connection.png" alt="mySQL connection" style="display: block; margin: 10px 0; width: 550px; height: auto;">
                 <li>To set up the tables in MySQL, we used Data Definition Language (DDL) code:</li>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Company</u><br>
+                        CREATE TABLE Company (
+                        CompanyId INT UNSIGNED,
+                        CompanyName VARCHAR(30),
+                        LocationId INT,
+                        ElectricityConsumption INT,
+                        GasConsumption INT,
+                        RenewableConsumption INT,
+                        CO2Emissions INT,
+                        NitrogenEmissions INT,
+                        PRIMARY KEY(CompanyId))
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Building</u><br>
+                        CREATE TABLE Building (
+                        BuildingId INT,
+                        CompanyId INT UNSIGNED,
+                        ElectricityConsumption INT,
+                        GasConsumption INT,
+                        RenewableConsumption INT,
+                        CO2Emissions INT,
+                        NitrogenEmissions INT,
+                        PRIMARY KEY(BuildingId),
+                        FOREIGN KEY(CompanyId) REFERENCES Company(CompanyId),
+                        FOREIGN KEY(LocationId) REFERENCES Location(LocationId))
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>User</u><br>
+                        CREATE TABLE User (
+                        username VARCHAR(30),
+                        password VARCHAR(30),
+                        CompanyId int UNSIGNED,
+                        PRIMARY KEY (username),
+                        FOREIGN KEY (CompanyId) REFERENCES Company (CompanyId))
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Location</u><br>
+                        CREATE TABLE Location (
+                        LocationId INT,
+                        Temperature INT,
+                        PRIMARY KEY (LocationId))
+                    </div>
+                    <div style="border: 1px solid #000; padding: 10px; width: calc(20% - 30px); font-size: 12px;">
+                        <u>Product</u><br>
+                        CREATE TABLE Product (
+                        ProductId INT,
+                        ProductName VARCHAR(30),
+                        Quantity INT,
+                        Department VARCHAR(20),
+                        CompanyId INT UNSIGNED,
+                        PRIMARY KEY(ProductId),
+                        FOREIGN KEY(CompanyId) REFERENCES Company(CompanyId))
+                    </div>
+                </div>
             </ul>
             <h3>Planning: Possible Queries and Indexing</h3>
             <p>We wrote four possible advanced queries that could be useful for the purpose of our application:</p>
@@ -131,6 +235,7 @@
             </ol>
             <p>In order to enhance the performance of our queries, particularly the post-feedback query, we implemented indexing strategies. This optimization process involved several iterations, where we analyzed the cost impacts of different indexing approaches using the EXPLAIN ANALYZE command.</p>
             <p>A look into MySQL indexing:</p>
+            <img src="images/indexing.png" alt="mySQL indexing" style="display: block; margin: 10px 0; width: 600px; height: auto;">
             <p>To enhance the functionality and maintainability of our database, we incorporated code for triggers and stored procedures → Automate routine tasks and encapsulate complex queries, leading to better performance and easier management.</p>
             <h3>Implementation</h3>
             <p>Backend</p>
@@ -208,21 +313,38 @@
                 <li><strong class="red-highlight">To-do:</strong> make the home page more professional and eye-catching by adding interactive hover functionalities using JS.</li>
             </ul>
             <p>Figma mockup: </p>
+            <img src="images/HP mockup.png" alt="homepage mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
             <p>Actual: </p>
+            <img src="images/HP actual.png" alt="homepage actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
             <h2>About Page</h2>
             <ul>
                 <li>To ensure a smooth transition from page #1 to page #2 (and page #2 to page #3), I integrated JavaScript seamlessly into the HTML files. This implementation enables sliding-out and fading-out transitions, enhancing the user experience with fluid navigation. These transitions not only provide a visually appealing pathway to the next page but also ensure that the shift between pages with contrasting colors remains gentle and easy on the eyes.</li>
             </ul>
             <p>Figma mockup: </p>
+            <img src="images/SWE mockup.png" alt="swe actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/PHIL mockup.png" alt="phil actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/about mockup.png" alt="about mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
             <p>Actual: </p>
+            <img src="images/SWE actual.png" alt="swe actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/PHIL actual.png" alt="phil actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/about actual.png" alt="about actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
             <h2>Project Page</h2>
             <ul>
                 <li>This page showcases different projects, each with its own description and implementation details. Each project is presented with an image and a brief overview, and clicking on it scrolls to the corresponding details. The page incorporates smooth scrolling functionality using JavaScript to enhance the user experience. Additionally, the design employs CSS for styling and layout, ensuring a visually appealing presentation.</li>
             </ul>
-            <p>Figma mockup (starting): </p>
-            <p>Actual (starting): </p>
-            <p>Figma mockup: </p>
-            <p>Actual: </p>
+            <p>Figma mockup of the overview: </p>
+            <img src="images/apps mockup.png" alt="apps mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/overview mockup.png" alt="overview mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <p>Actual overview: </p>
+            <img src="images/overview actual.png" alt="overview actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <p>Figma mockup of the project descriptions: </p>
+            <img src="images/allergeat mockup.png" alt="allergeat mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/carbcons mockup.png" alt="carbcons mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/site mockup.png" alt="site mockup" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <p>Actual project descriptions: </p>
+            <img src="images/allergeat actual.png" alt="allergeat actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/carbcons actual.png" alt="carbcons actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
+            <img src="images/site actual.png" alt="site actual" style="display: block; margin: 10px 0; width: 550px; height: auto;">
             <h2>Other Features</h2>
             <ul>
                 <li>I integrated a navigation bar with links to the home page (“Home”), projects page (“Projects”), and the About Me page (“About”) to allow users to easily navigate between different sections of the website, enhancing user accessibility and usability.</li>

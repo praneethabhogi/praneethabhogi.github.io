@@ -142,7 +142,7 @@ h1 {
     font-size: 45px;
     font-weight: 800;
     position: absolute;
-    top: 2150px;
+    top: 2340px;
     left: 60px;
 }
 .title-site {
@@ -150,7 +150,7 @@ h1 {
     font-size: 45px;
     font-weight: 800;
     position: absolute;
-    top: 4680px;
+    top: 6640px;
     left: 60px;
 }
 .highlight-box-title {
@@ -167,12 +167,12 @@ h1 {
 }
 #highlight-carbcons {
     width: 650px;
-    top: 2180px;
+    top: 2370px;
     left: 72px;
 }
 #highlight-site {
     width: 420px;
-    top: 4710px;
+    top: 6670px;
     left: 72px;
 }
 .tech-details {
