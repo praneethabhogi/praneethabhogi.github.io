@@ -7,49 +7,15 @@
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Big+Shoulders+Display&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            height: 100vh;
-        }
-        .right-side {
-            width: 70%;
-            background-color: #E2E2E2;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            color: black;
-            padding-left: 50px;
-            position: relative;
-            font-family: 'Roboto', sans-serif;
-        }
-        h1 {
-            font-size: 500%;
-            margin-bottom: 1px;
-            text-align: left;
-            font-weight: 500;
-        }
-        p {
-            font-size: 300%;
-            color: #6e5858;
-            margin: 0;
-            margin-bottom: 20px;
-            text-align: left;
-            font-family: 'Big Shoulders Display', cursive;
-        }
-        .buttons {
-            display: flex;
-            gap: 10px;
-        }
-    </style>
 </head>
 <body>
     <div class="left-side">
         <div class="circle">
-            <img src="images/headshot.jpg" alt="Praneetha's Headshot">
+            <div class="circle-overlay circle1"></div>
+            <div class="circle-overlay circle2"></div>
+            <img src="images/avatar_cropped.PNG" alt="Praneetha's avatar">
         </div>
+        <div class="speech-bubble speech-bubble-tail"><span class="text">Welcome to my portfolio!</span><span class="cursor">|</span></div>
         <button class="about-me" onclick="window.location.href='swe.html'">About Me</button>
         <script>
             function goToPhilosopherPage() {
@@ -76,5 +42,89 @@
             <button class="resume" onclick="window.location.href='documents/resume.pdf'">Resume</button>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const speechBubbleText = document.querySelector('.speech-bubble .text');
+            const speechBubbleCursor = document.querySelector('.speech-bubble .cursor');
+            const aboutMeButton = document.querySelector('.about-me');
+            const projectsButton = document.querySelector('.projects');
+            const resumeButton = document.querySelector('.resume');
+            const socialsButton = document.querySelector('.social-icons');
+
+            let typingTimeout;
+
+            function typeWriter(text, element, cursor, delay = 100) {
+                let i = 0;
+                element.textContent = "";
+                if (typingTimeout) {
+                    clearTimeout(typingTimeout);
+                }
+
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        typingTimeout = setTimeout(type, delay);
+                        cursor.style.display = 'inline';
+                    }
+                }
+
+                cursor.style.display = 'none';
+                type();
+            }
+
+            const defaultText = 'Welcome to my portfolio!';
+            typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
+
+            aboutMeButton.addEventListener('mouseover', () => {
+                typeWriter('Learn about me!', speechBubbleText, speechBubbleCursor);
+            });
+
+            aboutMeButton.addEventListener('mouseout', () => {
+                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
+            });
+
+            projectsButton.addEventListener('mouseover', () => {
+                typeWriter('Explore my work!', speechBubbleText, speechBubbleCursor);
+            });
+
+            projectsButton.addEventListener('mouseout', () => {
+                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
+            });
+
+            resumeButton.addEventListener('mouseover', () => {
+                typeWriter('Read my resume!', speechBubbleText, speechBubbleCursor);
+            });
+
+            resumeButton.addEventListener('mouseout', () => {
+                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
+            });
+
+            socialsButton.addEventListener('mouseover', () => {
+                typeWriter('Visit my socials!', speechBubbleText, speechBubbleCursor);
+            });
+
+            socialsButton.addEventListener('mouseout', () => {
+                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                const mouseX = event.pageX;
+                const mouseY = event.pageY;
+
+                const circle1 = document.querySelector('.circle1');
+                const circle2 = document.querySelector('.circle2');
+
+                // Adjust the multiplier values to control the movement range
+                const circle1MoveX = (mouseX / window.innerWidth) * 2 - 1.5;
+                const circle1MoveY = (mouseY / window.innerHeight) * 2 - 1.5;
+                circle1.style.transform = `translate(${circle1MoveX}px, ${circle1MoveY}px)`;
+
+                const circle2MoveX = (mouseX / window.innerWidth) * 2 - 1.5;
+                const circle2MoveY = (mouseY / window.innerHeight) * 2 - 1.5;
+                circle2.style.transform = `translate(${circle2MoveX}px, ${circle2MoveY}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
