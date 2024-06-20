@@ -1,6 +1,103 @@
 body {
     margin: 0;
     display: flex;
+    /* background: url('../images/bg.PNG') no-repeat center center fixed; */
+    /* background: #e2e2e2; */
+    background: #1b0000;
+    background-size: cover;
+    z-index: -1;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 480%;
+    color: #c3c2c2;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Bebas Neue';
+    position: absolute;
+    top: 210px;
+    left: 950px;
+}
+h2 {
+    font-size: 480%;
+    color: #c3c2c2;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Bebas Neue';
+    position: absolute;
+    top: 270px;
+    left: 950px;
+}
+p {
+    font-size: 220%;
+    color: #c3c2c2;
+    margin: 0;
+    text-align: left;
+    font-family: 'Big Shoulders Display', cursive;
+    position: absolute;
+    top: 420px;
+    left: 950px;
+}
+
+button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    /* border-radius: 20px; */
+    display: inline-block;
+    width: 130px;
+    position: absolute; /* Added to enable absolute positioning */
+}
+
+.about-me {
+    background-color: #c3c2c2;
+    color: #4E0C0C;
+    top: 490px;
+    left: 950px;
+}
+
+.projects {
+    background-color: #c3c2c2;
+    color: #4E0C0C;
+    top: 490px;
+    left: 1100px;
+}
+
+.resume {
+    background-color: #c3c2c2;
+    color: #4E0C0C;
+    top: 490px;
+    left: 1250px;
+}
+
+button:hover {
+    background-color: #595959;
+    color: #000000;
+}
+
+
+
+
+
+/* body {
+    margin: 0;
+    display: flex;
     height: 100vh;
 }
 
@@ -57,9 +154,9 @@ p {
     overflow: hidden;
     margin-bottom: 20px;
     background-color: #ff9e9e55;
-}
+} */
 
-.circle-overlay {
+/* .circle-overlay {
     position: absolute;
     width: 50px;
     height: 50px;
@@ -85,9 +182,9 @@ p {
     width: 8px;
     height: 10px;
     background-color: #d7d4d4;
-}
+} */
 
-.circle img {
+/* .circle img {
     width: 100%;
     height: 110%;
     object-fit: cover;
@@ -198,113 +295,4 @@ button:hover {
     height: 30px;
     cursor: pointer;
 }
-
-
-
-/* body {
-    margin: 0;
-    display: flex;
-    height: 100vh;
-}
-
-.left-side {
-    width: 30%;
-    background-color: #4E0C0C;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.character {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.character-img {
-    width: 250px;
-    height: 250px;
-    background-image: url('images/character.png');
-    background-size: cover;
-    border-radius: 50%;
-    animation: wave 2s infinite;
-}
-
-.speech-bubble {
-    top: -540;
-    left: 100%;
-    margin-left: 10px;
-    padding: 10px;
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #000;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    width: 150px;
-    text-align: center;
-}
-
-@keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(10deg); }
-}
-
-button {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border-radius: 20px;
-    display: inline-block;
-    width: auto;
-}
-
-.about-me {
-    background-color: #FFFFFF;
-}
-
-.about-me:hover {
-    background-color: #b3b2b2;
-}
-
-.projects, .resume {
-    background-color: #4E0C0C;
-    color: white;
-}
-
-button:hover {
-    background-color: #1b0303;
-}
-
-.social-icons {
-    margin-top: 1px;
-}
-
-.social-icon {
-    width: 30px;
-    height: auto;
-    margin-right: 5px;
-}
-
-.github-icon {
-    width: 60px;
-    height: 50px;
-    cursor: pointer;
-    margin-right: 5px;
-    filter: invert(100%);
-}
-
-.social-icons {
-    display: flex;
-    justify-content: space-between;
-    width: 150px;
-}
-
-.social-icons img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-} */
+ */
