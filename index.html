@@ -18,7 +18,7 @@
     <div class="line" style="width: 100px; height: 7px; background-color: #6e5858; position: absolute; top: 514px; left: 71px; transform: rotate(84deg); transform-origin: 0 0;"></div>
     <div class="line" style="width: 110px; height: 7px; background-color: #6e5858; position: absolute; top: 719px; left: 55.5px; transform: rotate(-80deg); transform-origin: 0 0;"></div>
     <div class="line" style="width: 84px; height: 7px; background-color: #6e5858; position: absolute; top: 767px; left: -5.5px; transform: rotate(-40deg); transform-origin: 0 0;"></div>
-
+    
     <div class="line" style="width: 282px; height: 7px; background-color: #6e5858; position: absolute; top: 0px; left: 870px; transform: rotate(85deg); transform-origin: 0 0;"></div>
     <div class="line" style="width: 110px; height: 7px; background-color: #6e5858; position: absolute; top: 357px; left: 815px; transform: rotate(-47deg); transform-origin: 0 0;"></div>
     <div class="line" style="width: 110px; height: 7px; background-color: #6e5858; position: absolute; top: 357px; left: 820px; transform: rotate(87deg); transform-origin: 0 0;"></div>
@@ -47,21 +47,18 @@
         <button class="resume" onclick="window.location.href='documents/resume.pdf'">Resume</button>
     </div>
     
-
     <script>
         const canvas = document.getElementById('brainCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // const gridSize = 16; // Define grid size
         const gridWidth = canvas.width / 15;
         const gridHeight = canvas.height / 13;
 
         const nodes = [];
         const edges = [];
         
-        // Brain-shaped coordinates in a 16x16 grid
         const brainShape = [
             {x: 5.5, y: 0.2}, {x: 7.6, y: 0.3}, {x: 9.5, y: 0.3}, {x: 11.4, y: 0.3},
             {x: 3.8, y: 1}, {x: 5, y: 1.1}, {x: 8, y: 1.2}, {x: 10.3, y: 1.4},
@@ -83,51 +80,47 @@
             {x: 6, y: 12.4}, {x: 7, y: 12.5}
         ];
 
-        // Utility function to get a random number within a range
         function getRandom(min, max) {
             return Math.random() * (max - min) + min;
         }
 
-        // Node class
         class Node {
             constructor(x, y) {
-                this.x = x * gridWidth; // Convert grid position to canvas coordinates
-                this.y = y * gridHeight; // Convert grid position to canvas coordinates
-                this.size = getRandom(2, 4); // Random size for nodes
+                this.x = x * gridWidth;
+                this.y = y * gridHeight;
+                this.size = getRandom(2, 4);
                 this.color = '#818080';
-                this.vx = getRandom(-0.2, 0.2); // Adjusted velocity in x direction
-                this.vy = getRandom(-0.2, 0.2); // Adjusted velocity in y direction
-                this.lastCollisionTime = performance.now(); // Timestamp of last collision
-                this.collisionTimeout = 6000; // Timeout period in milliseconds (4 seconds)
+                this.vx = getRandom(-0.4, 0.4);
+                this.vy = getRandom(-0.4, 0.4);
+                this.lastCollisionTime = performance.now();
+                this.collisionTimeout = 6000;
             }
 
             updatePosition() {
                 const currentTime = performance.now();
                 const timeSinceLastCollision = currentTime - this.lastCollisionTime;
 
-                // Check if timeout period has passed since last collision
                 if (timeSinceLastCollision > this.collisionTimeout) {
-                    this.vx = -this.vx; // Reverse direction in x
-                    this.vy = -this.vy; // Reverse direction in y
-                    this.lastCollisionTime = currentTime; // Update last collision time
+                    this.vx = -this.vx;
+                    this.vy = -this.vy;
+                    this.lastCollisionTime = currentTime;
                 }
 
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Bounce off the edges of the canvas
                 if (this.x <= 0 || this.x >= canvas.width) {
                     this.vx = -this.vx;
-                    this.lastCollisionTime = currentTime; // Update last collision time
+                    this.lastCollisionTime = currentTime;
                 }
                 if (this.y <= 0 || this.y >= canvas.height) {
                     this.vy = -this.vy;
-                    this.lastCollisionTime = currentTime; // Update last collision time
+                    this.lastCollisionTime = currentTime;
                 }
             }
 
             draw() {
-                this.updatePosition(); // Update position before drawing
+                this.updatePosition();
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fillStyle = this.color;
@@ -135,8 +128,6 @@
             }
         }
 
-
-        // Edge class
         class Edge {
             constructor(node1, node2) {
                 this.node1 = node1;
@@ -148,37 +139,32 @@
                 ctx.moveTo(this.node1.x, this.node1.y);
                 ctx.lineTo(this.node2.x, this.node2.y);
                 ctx.strokeStyle = '#3d3c3c';
-                ctx.lineWidth = 1; // Adjust line width for edges
+                ctx.lineWidth = 1;
                 ctx.stroke();
             }
         }
 
-        // Initialize nodes using brain-shaped coordinates in the grid
         brainShape.forEach(pos => {
             nodes.push(new Node(pos.x, pos.y));
         });
 
-        // Initialize edges
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i + 1; j < nodes.length; j++) {
-                // Check if nodes are on the edge and not adjacent
                 const isOnEdge = nodes[i].x === 0 || nodes[i].x === canvas.width ||
-                                  nodes[i].y === 0 || nodes[i].y === canvas.height ||
-                                  nodes[j].x === 0 || nodes[j].x === canvas.width ||
-                                  nodes[j].y === 0 || nodes[j].y === canvas.height;
+                    nodes[i].y === 0 || nodes[i].y === canvas.height ||
+                    nodes[j].x === 0 || nodes[j].x === canvas.width ||
+                    nodes[j].y === 0 || nodes[j].y === canvas.height;
 
                 const isAdjacent = Math.abs(nodes[i].x - nodes[j].x) <= gridWidth &&
-                                   Math.abs(nodes[i].y - nodes[j].y) <= gridHeight;
+                    Math.abs(nodes[i].y - nodes[j].y) <= gridHeight;
 
                 if (!isOnEdge || isAdjacent) {
-                    if (getRandom(0, 1) < 0.1) { // Adjust the threshold for connectivity
+                    if (getRandom(0, 1) < 0.1) { 
                         edges.push(new Edge(nodes[i], nodes[j]));
                     }
                 }
             }
         }
-
-        // Update and draw the network
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let edge of edges) {
@@ -193,144 +179,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praneetha Bhogi's Portfolio</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Big+Shoulders+Display&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="left-side">
-        <div class="circle">
-            <div class="circle-overlay circle1"></div>
-            <div class="circle-overlay circle2"></div>
-            <img src="images/avatar_cropped.PNG" alt="Praneetha's avatar">
-        </div>
-        <div class="speech-bubble speech-bubble-tail"><span class="text">Welcome to my portfolio!</span><span class="cursor">|</span></div>
-        <button class="about-me" onclick="window.location.href='swe.html'">About Me</button>
-        <script>
-            function goToPhilosopherPage() {
-                window.location.href = 'philosopher.html';
-            }
-        </script>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/praneetha-bhogi-1a6193228/" target="_blank">
-                <img src="images/linkedin_icon.webp" alt="LinkedIn" class="social-icon">
-            </a>
-            <a href="https://github.com/praneethabhogi" target="_blank">
-                <img src="images/github_logo.png" alt="GitHub" class="github-icon">
-            </a>
-            <a href="mailto:bhogipraneetha@gmail.com">
-                <img src="images/email_icon.webp" alt="Email" class="social-icon">
-            </a>
-        </div>
-    </div>
-    <div class="right-side">
-        <h1>Hi, I'm Praneetha Bhogi</h1>
-        <p>Computer Science and Philosophy</p>
-        <div class="buttons">
-            <button class="projects" onclick="window.location.href='projects.html'">Projects</button>
-            <button class="resume" onclick="window.location.href='documents/resume.pdf'">Resume</button>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const speechBubbleText = document.querySelector('.speech-bubble .text');
-            const speechBubbleCursor = document.querySelector('.speech-bubble .cursor');
-            const aboutMeButton = document.querySelector('.about-me');
-            const projectsButton = document.querySelector('.projects');
-            const resumeButton = document.querySelector('.resume');
-            const socialsButton = document.querySelector('.social-icons');
-
-            let typingTimeout;
-
-            function typeWriter(text, element, cursor, delay = 100) {
-                let i = 0;
-                element.textContent = "";
-                if (typingTimeout) {
-                    clearTimeout(typingTimeout);
-                }
-
-                function type() {
-                    if (i < text.length) {
-                        element.textContent += text.charAt(i);
-                        i++;
-                        typingTimeout = setTimeout(type, delay);
-                        cursor.style.display = 'inline';
-                    }
-                }
-
-                cursor.style.display = 'none';
-                type();
-            }
-
-            const defaultText = 'Welcome to my portfolio!';
-            typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
-
-            aboutMeButton.addEventListener('mouseover', () => {
-                typeWriter('Learn about me!', speechBubbleText, speechBubbleCursor);
-            });
-
-            aboutMeButton.addEventListener('mouseout', () => {
-                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
-            });
-
-            projectsButton.addEventListener('mouseover', () => {
-                typeWriter('Explore my work!', speechBubbleText, speechBubbleCursor);
-            });
-
-            projectsButton.addEventListener('mouseout', () => {
-                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
-            });
-
-            resumeButton.addEventListener('mouseover', () => {
-                typeWriter('Read my resume!', speechBubbleText, speechBubbleCursor);
-            });
-
-            resumeButton.addEventListener('mouseout', () => {
-                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
-            });
-
-            socialsButton.addEventListener('mouseover', () => {
-                typeWriter('Visit my socials!', speechBubbleText, speechBubbleCursor);
-            });
-
-            socialsButton.addEventListener('mouseout', () => {
-                typeWriter(defaultText, speechBubbleText, speechBubbleCursor);
-            });
-
-            document.addEventListener('mousemove', (event) => {
-                const mouseX = event.pageX;
-                const mouseY = event.pageY;
-
-                const circle1 = document.querySelector('.circle1');
-                const circle2 = document.querySelector('.circle2');
-
-                // Adjust the multiplier values to control the movement range
-                const circle1MoveX = (mouseX / window.innerWidth) * 2 - 1.5;
-                const circle1MoveY = (mouseY / window.innerHeight) * 2 - 1.5;
-                circle1.style.transform = `translate(${circle1MoveX}px, ${circle1MoveY}px)`;
-
-                const circle2MoveX = (mouseX / window.innerWidth) * 2 - 1.5;
-                const circle2MoveY = (mouseY / window.innerHeight) * 2 - 1.5;
-                circle2.style.transform = `translate(${circle2MoveX}px, ${circle2MoveY}px)`;
-            });
-        });
-    </script>
-</body>
-</html> -->
