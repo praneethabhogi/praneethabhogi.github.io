@@ -27,5 +27,16 @@
             }, 500);
         });
     </script>
+
+    <script>
+        document.getElementById('slide-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.body.classList.add('slide-out');
+            document.getElementById('overlay').classList.add('fade-in');
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 500);
+        });
+    </script>
 </body>
 </html>

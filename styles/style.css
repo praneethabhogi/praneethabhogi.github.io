@@ -1,52 +1,30 @@
 body {
     margin: 0;
     display: flex;
-    background: #1b0000;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    background: #F5F4F4;
     background-size: cover;
     z-index: -1;
 }
 
-canvas {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 60%;
-    height: 60%;
-    z-index: 1;
-}
-
 h1 {
-    font-size: 480%;
-    color: #c3c2c2;
-    text-align: left;
+    font-size: 780%;
+    color: #4E0C0C;
+    text-align: center;
     font-weight: 500;
     font-family: 'Bebas Neue';
     position: absolute;
-    top: 210px;
-    left: 950px;
-}
-h2 {
-    font-size: 480%;
-    color: #c3c2c2;
-    text-align: left;
-    font-weight: 500;
-    font-family: 'Bebas Neue';
-    position: absolute;
-    top: 270px;
-    left: 950px;
+    top: 180px;
 }
 p {
-    font-size: 220%;
-    color: #c3c2c2;
+    font-size: 420%;
+    color: #4E0C0C;
     margin: 0;
-    text-align: left;
+    text-align: center;
     font-family: 'Big Shoulders Display', cursive;
     position: absolute;
-    top: 420px;
-    left: 950px;
+    top: 390px;
 }
 
 button {
@@ -63,27 +41,27 @@ button {
 }
 
 .about-me {
-    background-color: #c3c2c2;
-    color: #4E0C0C;
-    top: 490px;
-    left: 950px;
+    background-color: #4E0C0C;
+    color: #F5F4F4;
+    top: 495px;
+    left: 500px;
 }
 
 .projects {
-    background-color: #c3c2c2;
-    color: #4E0C0C;
-    top: 490px;
-    left: 1100px;
+    background-color: #4E0C0C;
+    color: #F5F4F4;
+    top: 495px;
+    left: 650px;
 }
 
 .resume {
-    background-color: #c3c2c2;
-    color: #4E0C0C;
-    top: 490px;
-    left: 1250px;
+    background-color: #4E0C0C;
+    color: #F5F4F4;
+    top: 495px;
+    left: 800px;
 }
 
 button:hover {
-    background-color: #595959;
-    color: #000000;
+    background-color: #290303;
+    color: #F5F4F4;
 }
