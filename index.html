@@ -28,18 +28,18 @@
         renderer.setClearColor(0xF5F4F4);
         
         const particles = new THREE.Group();
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 1500; i++) {
             const geometry = new THREE.SphereGeometry(0.5, 32, 32);
             const material = new THREE.MeshBasicMaterial({ 
                 color: 0x4E0C0C,
                 wireframe: false,
                 transparent: true,
-                opacity: 0.12
+                opacity: 0.35
             });
             const sphere = new THREE.Mesh(geometry, material);
 
             sphere.position.set(Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50);
-            sphere.scale.set(0.37, 0.37, 0.37);
+            sphere.scale.set(0.17, 0.17, 0.17);
 
             particles.add(sphere);
         }
