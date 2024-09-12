@@ -65,32 +65,32 @@ h1 {
 
 .container {
     display: flex;
-    height: calc(100vh - 100px); /* Adjust height to fit within the viewport minus other elements */
-    margin: 20px; /* Space around the container */
-    position: relative; /* Ensure child elements are positioned relative to this container */
+    height: calc(100vh - 100px);
+    margin: 20px;
+    position: relative;
 }
 
 .left-container {
     width: 30%;
     box-sizing: border-box;
     text-align: right;
-    position: sticky; /* Keep it fixed while scrolling */
-    top: 0; /* Stick to the top of the container */
+    position: sticky;
+    top: 0;
 }
 
 .divider {
     width: 2px;
     background-color: #000000;
-    height: 85%; /* Full height of the container */
-    position: sticky; /* Keep it fixed while scrolling */
-    top: 0; /* Stick to the top of the container */
+    height: 85%;
+    position: sticky;
+    top: 0;
 }
 
 .right-container {
     width: 65%;
     box-sizing: border-box;
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 100%; /* Ensure it does not exceed the container height */
+    overflow-y: auto;
+    max-height: 100%;
 }
 
 .project-header {
@@ -120,7 +120,7 @@ h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 45px;
     font-weight: 800;
-    margin-bottom: 20px; /* Add some space below the title */
+    margin-bottom: 20px;
 }
 
 .tech-details {
@@ -178,28 +178,32 @@ h1 {
     cursor: pointer;
 }
 
-/* Ensure container doesn’t overflow */
 .image-comparison {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px; /* Space between sections */
+    margin-bottom: 20px;
 }
 
 .image-container {
-    flex: 1; /* Makes sure each image container takes equal space */
-    margin: 0 10px; /* Space between image containers */
-    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    flex: 1;
+    margin: 0 10px;
+    box-sizing: border-box;
 }
 
 .image-container img {
-    max-width: 100%; /* Ensures image scales down within its container */
-    height: auto; /* Maintains aspect ratio */
-    display: block; /* Removes inline spacing */
-    margin-bottom: 10px; /* Space below the image */
-    border: 2px solid #ddd; /* Add border around the images */
-    border-radius: 4px; /* Optional: rounded corners */
-    padding: 4px; /* Optional: space between image and border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
+.selected-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #c0a5a5;
+    transition: font-size 0.3s ease
+}

@@ -405,6 +405,15 @@
                     desc.classList.remove('active');
                 }
             });
+
+            // Update the titles based on which description is active
+            titles.forEach(title => {
+                if (title.getAttribute('data-target') === id) {
+                    title.classList.add('selected-title');
+                } else {
+                    title.classList.remove('selected-title');
+                }
+            });
         }
 
         // Initialize the default visible description
@@ -421,6 +430,7 @@
                 if (targetDesc) {
                     targetDesc.classList.add('active');
                     lastHoveredId = targetId;
+                    showDescription(lastHoveredId); // Update the title size
                 }
             });
 
