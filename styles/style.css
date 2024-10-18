@@ -9,7 +9,8 @@ body {
 }
 
 h1 {
-    font-size: 780%;
+    /* font-size: 780%; */
+    font-size: 9vw;
     color: #4E0C0C;
     text-align: center;
     font-weight: 500;
@@ -20,7 +21,8 @@ h1 {
     z-index: 1;
 }
 p {
-    font-size: 420%;
+    /* font-size: 420%; */
+    font-size: 5vw;
     color: #4E0C0C;
     margin: 0;
     text-align: center;
