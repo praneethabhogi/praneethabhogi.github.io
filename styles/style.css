@@ -21,8 +21,8 @@ h1 {
     z-index: 1;
 }
 p {
-    /* font-size: 420%; */
-    font-size: 5vw;
+    font-size: 320%;
+    /* font-size: 5vw; */
     color: #4E0C0C;
     margin: 0;
     text-align: center;
