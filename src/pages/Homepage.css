@@ -1,0 +1,118 @@
+/* Basic body and container setup */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: #F5F4F4;
+    height: 100vh;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+  /* Create a common 3D context for text using a wrapping container */
+  .homepage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* A wrapper for our text that sets the perspective and vanishing point */
+  .text-container {
+    position: absolute;
+    top: 80px;
+    right: 20px;  /* align to the right so items vanish toward that edge */
+    width: 70%;   /* adjust as needed */
+    perspective: 1000px;
+    perspective-origin: 100% 50%;  /* vanish point at right-center */
+  }
+  
+  /* Headline style with 3D tilt */
+  .homepage h1 {
+    font-size: 12vw;
+    font-weight: 600;
+    color: #4E0C0C;
+    margin: 0;
+    line-height: 0.7;
+    text-align: right;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    transform: rotateY(20deg);
+    transform-origin: right center;
+    transition: transform 0.3s ease-out;
+  }
+  
+  /* Optional hover to “pop” the headline forward */
+  .homepage h1:hover {
+    transform: rotateY(15deg);
+  }
+
+  .link {
+    display: block;
+    font-size: 10vw;
+    font-weight: 300;
+    color: #F5F4F4;
+    text-decoration: none;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+    text-align: right;
+    line-height: 0.8;
+    margin-left: 50px;
+    margin-top: 1rem;
+    text-decoration: none;
+    transform: rotateY(20deg);
+    transform-origin: right center;
+    transition: transform 0.3s ease-out;
+  }
+  
+  /* Optional hover effect for Projects link */
+  .link:hover {
+    transform: rotateY(15deg);
+  }
+
+  /* Dropdown remains the same */
+  .dropbtn {
+    color: #4E0C0C;
+    font-size: 34px;
+    padding: 10px 20px;
+    background-color: #F5F4F4;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+  .dropdown {
+    top: 20px;
+    right: 20px;
+    position: fixed;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #4E0C0C;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #290303;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
