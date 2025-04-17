@@ -9,7 +9,6 @@ const Development = () => {
         const titles = document.querySelectorAll('.dev-page .project-titles');
         const descriptions = document.querySelectorAll('.dev-page .description');
 
-        // Function to show the description based on the given ID
         const showDescription = (id) => {
             descriptions.forEach((desc) => {
                 if (desc.id === id) {
@@ -19,7 +18,6 @@ const Development = () => {
                 }
             });
 
-            // Update the titles based on which description is active
             titles.forEach((title) => {
                 if (title.getAttribute('data-target') === id) {
                     title.classList.add('selected-title');
@@ -29,26 +27,22 @@ const Development = () => {
             });
         };
 
-        // Initialize the default visible description
         showDescription(lastHoveredId);
 
         titles.forEach((title) => {
             title.addEventListener('mouseover', function () {
-                // Hide all descriptions
                 descriptions.forEach((desc) => desc.classList.remove('active'));
 
-                // Show the corresponding description
                 const targetId = this.getAttribute('data-target');
                 const targetDesc = document.getElementById(targetId);
                 if (targetDesc) {
                     targetDesc.classList.add('active');
                     setLastHoveredId(targetId);
-                    showDescription(targetId); // Update the title size
+                    showDescription(targetId);
                 }
             });
 
             title.addEventListener('mouseout', function () {
-                // Keep the last hovered description visible
                 showDescription(lastHoveredId);
             });
         });
@@ -69,10 +63,11 @@ const Development = () => {
                     <div className="dev-page project-titles" data-target="allergeat">Allerg-Eat</div>
                     <div className="dev-page project-titles" data-target="carbcons">Carbon Conscious</div>
                     <div className="dev-page project-titles" data-target="site">Personal Portfolio</div>
+                    <div className="dev-page project-titles" data-target="dinnerparty">Dinner Party</div> 
                 </div>
                 <div className="dev-page divider"></div>
                 <div className="dev-page right-container">
-                    <div className="title-allergeat description" id="allergeat">
+                    <div className="title-allrgeat description" id="allergeat">
                         <div className="project-header underline">Allerg-Eat</div>
                         <p className="tech-details">
                             <em>ML Model: Python, Pandas, scikit-learn, NumPy, NLTK, Gensim, Pytorch<br />
@@ -429,6 +424,19 @@ const Development = () => {
                                 <li>Clear planning and creative stimulation are necessary for web page development</li>
                                 <li>Growing familiarity with HTML/CSS and JavaScript and the many uses in UI/UX spaces</li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="title-personal-portfolio description" id="dinnerparty">
+                        <div class="project-header underline">Dinner Party</div>
+                        <p class="tech-details">
+                            <em> App Development: React Native/Expo, TypeScript, JavaScript, Android Studio, Git, Figma </em>
+                        </p>
+                        <div class="concept-details">
+                            <h2>Development Process: A slideshow</h2>
+                            <ul>
+                                <li><strong class="highlight-text"></strong>This slideshow goes through the process of our six month development phase, from our user research to our lo-fi and hi-fi prototypes, as well as our takeaways from this experience.</li>
+                            </ul>
+                            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQ_rxob7Qr5RM3AtYpcSiJ16jTkWWfMyR-yAnEyamqHhtQT_jgNf-O5uwj5ikkojMnNHViImarnMa/embed?start=false&loop=false&delayms=3000" frameborder="0" width="768" height="455.2" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         </div>
                     </div>
                 </div>
