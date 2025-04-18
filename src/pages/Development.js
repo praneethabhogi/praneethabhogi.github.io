@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Development.css';
 
 const Development = () => {
-    const [lastHoveredId, setLastHoveredId] = useState('allergeat'); // Default to Allerg-Eat's description
+    const [lastHoveredId, setLastHoveredId] = useState('carbcons');
 
     useEffect(() => {
         const titles = document.querySelectorAll('.dev-page .project-titles');
@@ -60,56 +60,13 @@ const Development = () => {
             <div className="dev-page container">
                 <div className="dev-page left-container">
                     <div className="dev-page project-header red-highlight">Projects</div> <br /><br />
-                    <div className="dev-page project-titles" data-target="allergeat">Allerg-Eat</div>
                     <div className="dev-page project-titles" data-target="carbcons">Carbon Conscious</div>
-                    <div className="dev-page project-titles" data-target="site">Personal Portfolio</div>
                     <div className="dev-page project-titles" data-target="dinnerparty">Dinner Party</div> 
+                    <div className="dev-page project-titles" data-target="site">Personal Portfolio</div>
+                    <div className="dev-page project-titles" data-target="allergeat">Allerg-Eat</div>
                 </div>
                 <div className="dev-page divider"></div>
                 <div className="dev-page right-container">
-                    <div className="title-allrgeat description" id="allergeat">
-                        <div className="project-header underline">Allerg-Eat</div>
-                        <p className="tech-details">
-                            <em>ML Model: Python, Pandas, scikit-learn, NumPy, NLTK, Gensim, Pytorch<br />
-                            App Development: Flask, Node.js, React.js, Figma</em>
-                        </p>
-                        <div className="concept-details">
-                            <h2>The Concept</h2>
-                            <p>As someone who had many restrictions and health issues that made it hard to find recipes that met my dietary needs, I envisioned Allerg-Eat as a tool to alleviate the problem. Allerg-Eat is a recipe recommendation system tailored specifically for individuals with food allergies and dietary restrictions.</p>
-                            <p>My model takes in a user's allergy information and cravings, which are then used to create a personalized ranked list of recipes. Using fundamental techniques in ML and NLP, Allerg-Eat filters through thousands of recipes to ensure that you can find meals that are both safe and delicious.</p>
-                            <h3>Data Formatting</h3>
-                            <ul>
-                                <li><strong className="red-highlight">Loading Data:</strong> I loaded the raw recipe data from a JSON file using pd.read_json. The data is then transposed to switch rows and columns for proper alignment.</li>
-                                <li><strong className="red-highlight">Resetting Index:</strong> I reset the index to have a proper integer-based index and drop the first column which might contain irrelevant data.</li>
-                                <li><strong className="red-highlight">Cleaning Ingredients List:</strong> The ingredient_parser function processes each ingredient list to remove stop words, measurement words, accents, and converts them to their base forms for consistency.</li>
-                                <li><strong className="red-highlight">Ingredient Parsing:</strong> The function processes each ingredient string by splitting, filtering, and normalizing text, and removes unnecessary words to prepare a clean list of ingredients.</li>
-                            </ul>
-                            <h3>Ingredient Grouping</h3>
-                            <p>In this step, the ingredients are grouped and processed to understand their semantic relationships.</p>
-                            <ul>
-                                <li><strong className="red-highlight">Grouping Ingredients:</strong> Here, I joined the cleaned ingredient lists into single strings for each recipe. This helps in further processing steps where each recipe is treated as a document for natural language processing.</li>
-                            </ul>
-                            <p>I used the Word2Vec model to generate vector representations of the ingredients.</p>
-                            <ul>
-                                <li><strong className="red-highlight">Training Word2Vec:</strong> The Word2Vec model is trained on the cleaned ingredient lists. I used the Continuous Bag of Words (CBOW) approach to understand the context of each ingredient and create vector representations.</li>
-                                <li><strong className="red-highlight">Average Vector Calculation:</strong> This function calculates the average vector representation for each recipe by averaging the vectors of its ingredients.</li>
-                            </ul>
-                            <h3>Similarity Ranking</h3>
-                            <p>I used cosine similarity to rank the recipes based on user preferences.</p>
-                            <ul>
-                                <li><strong className="red-highlight">Cosine Similarity Calculation:</strong> This function calculates the cosine similarity between two vectors to determine how similar they are.</li>
-                                <li><strong className="red-highlight">Ranking Function:</strong> This function ranks the recipes based on the user's allergies and cravings. It adjusts the reference vector according to the user's cravings and calculates the cosine similarity for each recipe. The similarity score is then adjusted based on the presence of allergens.</li>
-                            </ul>
-                            <h3>In Progress</h3>
-                            <p>I am currently building the CBOW (Continuous Bag of Words) approach to the Word2Vec model from scratch using a neural network. The data preparation involves cleaning ingredient lists, creating a corpus of sentences, and generating CBOW pairs. The CBOWModel class defines a neural network with an embedding layer and a linear layer. The vocabulary is created from unique words in the ingredient list, and sequences of words are converted into indices. The model is initialized with the vocabulary size and embedding size, and trained using CrossEntropyLoss and SGD optimizer. After training, the word embeddings are extracted and stored in a dictionary for further use.</p>
-                            <h3>Next Steps</h3>
-                            <ul>
-                                <li><strong className="red-highlight">User Feedback Integration:</strong> Incorporate user feedback to refine the recommendation algorithm and improve the accuracy of the ranked recipes.</li>
-                                <li><strong className="red-highlight">Personalized Meal Plans:</strong> Introduce personalized meal plans that consider not just allergies and cravings but also nutritional requirements and dietary goals.</li>
-                                <li><strong className="red-highlight">Mobile App Development:</strong> Develop a mobile application to make Allerg-Eat accessible on-the-go, providing real-time recipe recommendations based on user location and preferences.</li>
-                            </ul>
-                        </div>
-                    </div>
                     <div className="title-carbcons description" id="carbcons">
                         <div className="project-header underline">Carbon Conscious</div>
                         <p className="tech-details">
@@ -319,6 +276,20 @@ const Development = () => {
                             </ul>
                         </div>
                     </div>
+                    <div class="title-personal-portfolio description" id="dinnerparty">
+                        <div class="project-header underline">Dinner Party</div>
+                        <p class="tech-details">
+                            <em> App Development: React Native/Expo, TypeScript, JavaScript, Android Studio, Git, Figma </em>
+                        </p>
+                        <div class="concept-details">
+                            <h2>Development Process: A slideshow</h2>
+                            <ul>
+                                <li><strong class="highlight-text"></strong>This slideshow goes through the process of our six month development phase, from our user research to our lo-fi and hi-fi prototypes, as well as our takeaways from this experience.</li>
+                                <li><a href="/files/dinnerparty.apk" download class="apk-link" target="_blank"> Simulate the App in Android Studio (APK) </a></li>
+                            </ul>
+                            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQ_rxob7Qr5RM3AtYpcSiJ16jTkWWfMyR-yAnEyamqHhtQT_jgNf-O5uwj5ikkojMnNHViImarnMa/embed?start=false&loop=false&delayms=3000" frameborder="0" width="768" height="455.2" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                        </div>
+                    </div>
                     <div class="title-personal-portfolio description" id="site">
                         <div class="project-header underline">Personal Portfolio</div>
                         <p class="tech-details">
@@ -426,17 +397,47 @@ const Development = () => {
                             </ul>
                         </div>
                     </div>
-                    <div class="title-personal-portfolio description" id="dinnerparty">
-                        <div class="project-header underline">Dinner Party</div>
-                        <p class="tech-details">
-                            <em> App Development: React Native/Expo, TypeScript, JavaScript, Android Studio, Git, Figma </em>
+                    <div className="title-allrgeat description" id="allergeat">
+                        <div className="project-header underline">Allerg-Eat</div>
+                        <p className="tech-details">
+                            <em>ML Model: Python, Pandas, scikit-learn, NumPy, NLTK, Gensim, Pytorch<br />
+                            App Development: Flask, Node.js, React.js, Figma</em>
                         </p>
-                        <div class="concept-details">
-                            <h2>Development Process: A slideshow</h2>
+                        <div className="concept-details">
+                            <h2>The Concept</h2>
+                            <p>As someone who had many restrictions and health issues that made it hard to find recipes that met my dietary needs, I envisioned Allerg-Eat as a tool to alleviate the problem. Allerg-Eat is a recipe recommendation system tailored specifically for individuals with food allergies and dietary restrictions.</p>
+                            <p>My model takes in a user's allergy information and cravings, which are then used to create a personalized ranked list of recipes. Using fundamental techniques in ML and NLP, Allerg-Eat filters through thousands of recipes to ensure that you can find meals that are both safe and delicious.</p>
+                            <h3>Data Formatting</h3>
                             <ul>
-                                <li><strong class="highlight-text"></strong>This slideshow goes through the process of our six month development phase, from our user research to our lo-fi and hi-fi prototypes, as well as our takeaways from this experience.</li>
+                                <li><strong className="red-highlight">Loading Data:</strong> I loaded the raw recipe data from a JSON file using pd.read_json. The data is then transposed to switch rows and columns for proper alignment.</li>
+                                <li><strong className="red-highlight">Resetting Index:</strong> I reset the index to have a proper integer-based index and drop the first column which might contain irrelevant data.</li>
+                                <li><strong className="red-highlight">Cleaning Ingredients List:</strong> The ingredient_parser function processes each ingredient list to remove stop words, measurement words, accents, and converts them to their base forms for consistency.</li>
+                                <li><strong className="red-highlight">Ingredient Parsing:</strong> The function processes each ingredient string by splitting, filtering, and normalizing text, and removes unnecessary words to prepare a clean list of ingredients.</li>
                             </ul>
-                            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQ_rxob7Qr5RM3AtYpcSiJ16jTkWWfMyR-yAnEyamqHhtQT_jgNf-O5uwj5ikkojMnNHViImarnMa/embed?start=false&loop=false&delayms=3000" frameborder="0" width="768" height="455.2" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                            <h3>Ingredient Grouping</h3>
+                            <p>In this step, the ingredients are grouped and processed to understand their semantic relationships.</p>
+                            <ul>
+                                <li><strong className="red-highlight">Grouping Ingredients:</strong> Here, I joined the cleaned ingredient lists into single strings for each recipe. This helps in further processing steps where each recipe is treated as a document for natural language processing.</li>
+                            </ul>
+                            <p>I used the Word2Vec model to generate vector representations of the ingredients.</p>
+                            <ul>
+                                <li><strong className="red-highlight">Training Word2Vec:</strong> The Word2Vec model is trained on the cleaned ingredient lists. I used the Continuous Bag of Words (CBOW) approach to understand the context of each ingredient and create vector representations.</li>
+                                <li><strong className="red-highlight">Average Vector Calculation:</strong> This function calculates the average vector representation for each recipe by averaging the vectors of its ingredients.</li>
+                            </ul>
+                            <h3>Similarity Ranking</h3>
+                            <p>I used cosine similarity to rank the recipes based on user preferences.</p>
+                            <ul>
+                                <li><strong className="red-highlight">Cosine Similarity Calculation:</strong> This function calculates the cosine similarity between two vectors to determine how similar they are.</li>
+                                <li><strong className="red-highlight">Ranking Function:</strong> This function ranks the recipes based on the user's allergies and cravings. It adjusts the reference vector according to the user's cravings and calculates the cosine similarity for each recipe. The similarity score is then adjusted based on the presence of allergens.</li>
+                            </ul>
+                            <h3>In Progress</h3>
+                            <p>I am currently building the CBOW (Continuous Bag of Words) approach to the Word2Vec model from scratch using a neural network. The data preparation involves cleaning ingredient lists, creating a corpus of sentences, and generating CBOW pairs. The CBOWModel class defines a neural network with an embedding layer and a linear layer. The vocabulary is created from unique words in the ingredient list, and sequences of words are converted into indices. The model is initialized with the vocabulary size and embedding size, and trained using CrossEntropyLoss and SGD optimizer. After training, the word embeddings are extracted and stored in a dictionary for further use.</p>
+                            <h3>Next Steps</h3>
+                            <ul>
+                                <li><strong className="red-highlight">User Feedback Integration:</strong> Incorporate user feedback to refine the recommendation algorithm and improve the accuracy of the ranked recipes.</li>
+                                <li><strong className="red-highlight">Personalized Meal Plans:</strong> Introduce personalized meal plans that consider not just allergies and cravings but also nutritional requirements and dietary goals.</li>
+                                <li><strong className="red-highlight">Mobile App Development:</strong> Develop a mobile application to make Allerg-Eat accessible on-the-go, providing real-time recipe recommendations based on user location and preferences.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

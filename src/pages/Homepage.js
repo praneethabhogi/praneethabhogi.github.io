@@ -63,7 +63,7 @@ const Homepage = () => {
         </h1>
         <Link className="link" to="/about">About&nbsp;Me</Link>
         <Link className="link" to="/projects">Projects</Link>
-        <a className="link" href="/pdfs/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a className="link" href="/files/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
   
       <div className="dropdown">
