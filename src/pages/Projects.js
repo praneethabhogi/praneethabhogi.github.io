@@ -68,8 +68,19 @@ const Projects = () => {
             <h1>Explore My Work</h1>
             {/* <div className="highlight-box"></div> */}
 
+            <div className="JUMP-SIM-container">
+                <img src="images/JUMP_SIM.jpg" alt="JUMP-SIM UI" className="JUMP-SIM" />
+                <p className="JUMP-SIM-title">
+                    <span className="red-highlight">Jump Simulation Internship</span> <br />
+                    <span className="JUMP-SIM-subtitle" data-text=" A virtual, interactive AI patient in an XR simulation">A virtual, interactive AI patient in an XR simulation</span>
+                    <span className="cursor">|</span> <br />
+                    <br />
+                    <span className="JUMP-SIM-text">Unity, C#, Python, Meta Quest, AWS Lambda, and more</span> <br />
+                    <Link className="project-button" to="/development">Demo</Link>
+                </p>
+            </div>
+
             <div className="carbcons-container">
-                <img src="images/carbcons_figma.png" alt="carbcons UI" className="carbcons" />
                 <p className="carbcons-title">
                     <span className="red-highlight">Carbon Conscious</span> <br />
                     <span className="carbcons-subtitle" data-text=" An app to track your carbon footprint">An app to track your carbon footprint</span>
@@ -79,9 +90,11 @@ const Projects = () => {
                     <button className="project-button" onClick={() => window.open('https://github.com/praneethabhogi/RecipeRecommender', '_blank')}>Github</button>
                     <Link className="project-button" to="/development">Dev Process</Link>
                 </p>
+                <img src="images/carbcons_figma.png" alt="carbcons UI" className="carbcons" />
             </div>
 
             <div className="dinnerparty-container">
+                <img src="images/dinnerparty_figma.png" alt="dinnerparty UI" className="dinnerparty" />
                 <p className="dinnerparty-title">
                     <span className="red-highlight">Dinner Party</span> <br />
                     <span className="dinnerparty-subtitle" data-text=" An app to track your carbon footprint">A Tinder-style restaurant finding mobile app</span>
@@ -91,11 +104,9 @@ const Projects = () => {
                     <button className="project-button" onClick={() => window.open('https://github.com/CS465UIDesign/AD3_4', '_blank')}>Github</button>
                     <Link className="project-button" to="/development">Dev Process</Link>
                 </p>
-                <img src="images/dinnerparty_figma.png" alt="dinnerparty UI" className="dinnerparty" />
             </div>
 
             <div className="portfolio-container">
-                <img src="images/portfolio_figma.png" alt="portfolio UI" className="portfolio" />
                 <p className="portfolio-title">
                     <span className="red-highlight">My Portfolio</span> <br />
                     <span className="portfolio-subtitle" data-text=" A showcase of my skills">A showcase of my skills</span>
@@ -105,9 +116,11 @@ const Projects = () => {
                     <button className="project-button" onClick={() => window.open('https://github.com/praneethabhogi/praneethabhogi.github.io', '_blank')}>Github</button>
                     <Link className="project-button" to="/development">Dev Process</Link>
                 </p>
+                <img src="images/portfolio_figma.png" alt="portfolio UI" className="portfolio" />
             </div>
 
             <div className="allergeat-container">
+                <img src="images/allergeat_figma.png" alt="allergeat UI" className="allergeat" />
                 <p className="allergeat-title">
                     <span className="red-highlight">Allerg-Eat</span> <br />
                     <span className="allergeat-subtitle" data-text=" An app to manage food allergies">An app to manage food allergies</span>
@@ -117,7 +130,6 @@ const Projects = () => {
                     <button className="project-button" onClick={() => window.open('https://github.com/praneethabhogi/RecipeRecommender', '_blank')}>Github</button>
                     <Link className="project-button" to="/development">Dev Process</Link>
                 </p>
-                <img src="images/allergeat_figma.png" alt="allergeat UI" className="allergeat" />
             </div>
         </div>
     );

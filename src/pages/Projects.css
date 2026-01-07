@@ -81,7 +81,7 @@
     animation: float 6s ease-in-out infinite;
 }
 
-.projects-page .allergeat-container, .projects-page .carbcons-container, .projects-page .portfolio-container, .projects-page .dinnerparty-container {
+.projects-page .allergeat-container, .projects-page .carbcons-container, .projects-page .portfolio-container, .projects-page .dinnerparty-container, .projects-page .JUMP-SIM-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -94,7 +94,7 @@
     border: 1px solid #4E0C0C;
 }
 
-.projects-page .allergeat-title, .projects-page .carbcons-title, .projects-page .portfolio-title, .projects-page .dinnerparty-title {
+.projects-page .allergeat-title, .projects-page .carbcons-title, .projects-page .portfolio-title, .projects-page .dinnerparty-title, .projects-page .JUMP-SIM-title {
     font-size: 28px;
     line-height: 1.4;
     font-family: 'Roboto Serif', serif;
@@ -103,11 +103,11 @@
     flex: 1;
 }
 
-.projects-page .allergeat-subtitle, .projects-page .carbcons-subtitle, .projects-page .portfolio-subtitle, .projects-page .dinnerparty-subtitle {
+.projects-page .allergeat-subtitle, .projects-page .carbcons-subtitle, .projects-page .portfolio-subtitle, .projects-page .dinnerparty-subtitle, .projects-page .JUMP-SIM-subtitle{
     font-size: 22px;
 }
 
-.projects-page .allergeat-text, .projects-page .carbcons-text, .projects-page .portfolio-text, .projects-page .dinnerparty-text {
+.projects-page .allergeat-text, .projects-page .carbcons-text, .projects-page .portfolio-text, .projects-page .dinnerparty-text, .projects-page .JUMP-SIM-text {
     font-size: 16px;
 }
 
@@ -124,6 +124,12 @@
 }
 
 .projects-page .dinnerparty {
+    max-width: 50%;
+    border: 1px solid #4E0C0C;
+    animation-delay: 4s;
+}
+
+.projects-page .JUMP-SIM {
     max-width: 50%;
     border: 1px solid #4E0C0C;
     animation-delay: 4s;
@@ -154,7 +160,7 @@
     background-color: #7C1D1D;
 }
 
-.projects-page .allergeat-buttons, .projects-page .carbcons-buttons, .projects-page .portfolio-buttons, .projects-page .dinnerparty-buttons {
+.projects-page .allergeat-buttons, .projects-page .carbcons-buttons, .projects-page .portfolio-buttons, .projects-page .dinnerparty-buttons, .projects-page .JUMP-SIM-buttons {
     display: flex;
     gap: 10px;
     margin-top: 20px;
