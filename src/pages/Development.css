@@ -208,3 +208,9 @@
     color: #c0a5a5;
     transition: font-size 0.3s ease
 }
+
+video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+}

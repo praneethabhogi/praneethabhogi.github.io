@@ -72,7 +72,7 @@ const Projects = () => {
                 <img src="images/JUMP_SIM.jpg" alt="JUMP-SIM UI" className="JUMP-SIM" />
                 <p className="JUMP-SIM-title">
                     <span className="red-highlight">Jump Simulation Internship</span> <br />
-                    <span className="JUMP-SIM-subtitle" data-text=" A virtual, interactive AI patient in an XR simulation">A virtual, interactive AI patient in an XR simulation</span>
+                    <span className="JUMP-SIM-subtitle" data-text=" Mary: A virtual AI patient in a medical XR simulation">Mary: A virtual AI patient in a medical XR simulation</span>
                     <span className="cursor">|</span> <br />
                     <br />
                     <span className="JUMP-SIM-text">Unity, C#, Python, Meta Quest, AWS Lambda, and more</span> <br />
@@ -80,21 +80,7 @@ const Projects = () => {
                 </p>
             </div>
 
-            <div className="carbcons-container">
-                <p className="carbcons-title">
-                    <span className="red-highlight">Carbon Conscious</span> <br />
-                    <span className="carbcons-subtitle" data-text=" An app to track your carbon footprint">An app to track your carbon footprint</span>
-                    <span className="cursor">|</span> <br />
-                    <br />
-                    <span className="carbcons-text">MySQL, GCP, Express.js, and more</span> <br />
-                    <button className="project-button" onClick={() => window.open('https://github.com/praneethabhogi/RecipeRecommender', '_blank')}>Github</button>
-                    <Link className="project-button" to="/development">Dev Process</Link>
-                </p>
-                <img src="images/carbcons_figma.png" alt="carbcons UI" className="carbcons" />
-            </div>
-
             <div className="dinnerparty-container">
-                <img src="images/dinnerparty_figma.png" alt="dinnerparty UI" className="dinnerparty" />
                 <p className="dinnerparty-title">
                     <span className="red-highlight">Dinner Party</span> <br />
                     <span className="dinnerparty-subtitle" data-text=" An app to track your carbon footprint">A Tinder-style restaurant finding mobile app</span>
@@ -102,6 +88,20 @@ const Projects = () => {
                     <br />
                     <span className="dinnerparty-text">React Native/Expo, TypeScript, Android Studio, and more</span> <br />
                     <button className="project-button" onClick={() => window.open('https://github.com/CS465UIDesign/AD3_4', '_blank')}>Github</button>
+                    <Link className="project-button" to="/development">Dev Process</Link>
+                </p>
+                <img src="images/dinnerparty_figma.png" alt="dinnerparty UI" className="dinnerparty" />
+            </div>
+
+            <div className="carbcons-container">
+                <img src="images/carbcons_figma.png" alt="carbcons UI" className="carbcons" />
+                <p className="carbcons-title">
+                    <span className="red-highlight">Carbon Conscious</span> <br />
+                    <span className="carbcons-subtitle" data-text=" An app to track your carbon footprint">An app to track your carbon footprint</span>
+                    <span className="cursor">|</span> <br />
+                    <br />
+                    <span className="carbcons-text">MySQL, GCP, Express.js, and more</span> <br />
+                    <button className="project-button" onClick={() => window.open('https://github.com/praneethabhogi/RecipeRecommender', '_blank')}>Github</button>
                     <Link className="project-button" to="/development">Dev Process</Link>
                 </p>
             </div>

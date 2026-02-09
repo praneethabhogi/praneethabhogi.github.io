@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Development.css';
 
 const Development = () => {
-    const [lastHoveredId, setLastHoveredId] = useState('carbcons');
+    const [lastHoveredId, setLastHoveredId] = useState('jumpsim');
 
     useEffect(() => {
         const titles = document.querySelectorAll('.dev-page .project-titles');
@@ -60,6 +60,7 @@ const Development = () => {
             <div className="dev-page container">
                 <div className="dev-page left-container">
                     <div className="dev-page project-header red-highlight">Projects</div> <br /><br />
+                    <div className="dev-page project-titles" data-target="jumpsim">Virtual AI Patient (Jump Sim)</div>
                     <div className="dev-page project-titles" data-target="carbcons">Carbon Conscious</div>
                     <div className="dev-page project-titles" data-target="dinnerparty">Dinner Party</div> 
                     <div className="dev-page project-titles" data-target="site">Personal Portfolio</div>
@@ -67,6 +68,38 @@ const Development = () => {
                 </div>
                 <div className="dev-page divider"></div>
                 <div className="dev-page right-container">
+                    <div class="title-jumpsim description" id="jumpsim">
+                        <div class="project-header underline">Virtual AI Patient @ Jump Simulation</div>
+                        <p class="tech-details">
+                            <em> App Development: Unity, C#, Python, Meta Quest, AWS Lambda, and more </em>
+                        </p>
+                        <div class="concept-details">
+                            <h2>Introduction</h2>
+                            <ul>
+                                <li><strong class="highlight-text"></strong>Our team created Mary, an interactive virtual AI patient.</li>
+                                <li><strong className="red-highlight">Goals</strong>
+                                <ul>
+                                    <li>Users can directly speak to Mary, and Mary will respond with an appropriate and accurate answer.</li>
+                                    <li>While only one person can ask a question at a time, multiple users can be in the simulation and take turns asking her questions.</li>
+                                    <li>Mary remembers past questions/answers and can build off of them for follow-up questions.</li>
+                                    <li>Mary responds almost immediately. To ensure the best user experience, creatively mask latencies.</li>
+                                </ul>
+                            </li>
+                            </ul>
+                            <h2>Demo Reel</h2>
+                            <ul>
+                                <li><strong class="highlight-text"></strong>A quick introduction to Mary.</li>
+                            </ul>
+                            <video controls>
+                                <source src="images/Jump_Sim_Demo_Reel.mp4" type="video/mp4" />
+                            </video>
+                            <h2>Our Process</h2>
+                            <ul>
+                                <li><strong class="highlight-text"></strong>A look into our development process.</li>
+                            </ul>
+                            <iframe src="https://1drv.ms/p/c/0732d61af5ae526b/IQRWIyL1KCPLS5tluQLi53pmAS3uoVrVfTJZ3QUt5L9iOlk?em=2&amp;wdAr=1.7777777777777777" width="768px" height="455.2px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+                        </div>
+                    </div>
                     <div className="title-carbcons description" id="carbcons">
                         <div className="project-header underline">Carbon Conscious</div>
                         <p className="tech-details">
