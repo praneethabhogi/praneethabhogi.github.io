@@ -59,7 +59,7 @@ const Homepage = () => {
       <div className="text-container">
         <h1>
           Praneetha&nbsp;Bhogi <br />
-          <span style={{ fontSize: '8vw', fontWeight: 300 }}>Computer&nbsp;Science&nbsp;+&nbsp;Philosophy</span>
+          <span style={{ fontSize: '8vw', fontWeight: 300 }}>Master&nbsp;Of&nbsp;Computer&nbsp;Science</span> <br></br>
         </h1>
         <Link className="link" to="/about">About&nbsp;Me</Link>
         <Link className="link" to="/projects">Projects</Link>
